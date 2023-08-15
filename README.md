@@ -28,6 +28,26 @@ you must have a godd understanding of Java, distributed messaging system and Lin
 
 ## Kafka Architecture
 ![Architecture](Kafka_architecture.png)
+1. Broker: multiple brokers to maintain load balance. Kafka brokers are stateless, so they use ZooKeeper to maintin their cluster state.
+2. ZooKepper: is used to manage and coordinate Kafka broker
+3. Producers: publish data to broker
+4. Consumers pull data and must know a particular message offset
+
+## Installation steps
+
+Note: Kafka is not intended to be run on Windows natively and has several issues that may arise over time.
+
+Therefore, it is recommended to run Apache Kafka on Windows through:
+    If using Windows 10 or above: WSL2 (Windows Subsystem fpr Linux 2) or Docker
+    If using Windows 8 or below: Docker
+
+- For Windows: https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/
+- For Linux: https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-linux/
+
+## Integration of Kafka into Spring Boot
+
+## Simple Producer & Consumer Example
+- 
 
 ## Cloning the repository
 
