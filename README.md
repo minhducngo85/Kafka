@@ -38,15 +38,47 @@ you must have a godd understanding of Java, distributed messaging system and Lin
 Note: Kafka is not intended to be run on Windows natively and has several issues that may arise over time.
 
 Therefore, it is recommended to run Apache Kafka on Windows through:
-    If using Windows 10 or above: WSL2 (Windows Subsystem fpr Linux 2) or Docker
+    If using Windows 10 or above: WSL2 (Windows Subsystem for Linux 2) or Docker
     If using Windows 8 or below: Docker
 
 - For Windows: https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/
 - For Linux: https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-linux/
 
-## Integration of Kafka into Spring Boot
+### How to install Kafka with Zookeeper on Windows
+    1. You must have Windows 10 or above
+    2. Install WSL2
+	wsl --install -d Ubuntu
+    3. Install Java JDK version 11
+	sudo apt-get install openjdk-11-jdk
+    4. Download Apache Kafka from https://kafka.apache.org/downloads under Binary
+    5. Downloads & Extract the contents on WSL2
+    6. Start Zookeeper using the binaries in WSL2
+	bin/zookeeper-server-start.sh /config/zookeeper.properties
+    7. Start Kafka using the binaries in another process in WSL2
+	bin/kafka-server-start.sh config/server.properties
+    8. Setup the $PATH environment variables for easy access to the Kafka binaries
+	PATH="$PATH:~/kafka_2.13-3.5.1/bin"
+	the conmmand: kafka-tocpics.sh should from any folder
+
+## Kafka CLI
+- create a topic:
+bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+- view topic:
+bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+- write events/ Msg to topic
+bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+ > my frist msg
+ > my second msg
+- read event from queue
+bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+- with partition and offset:
+kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhost:9092 --partition 0  --offset 2
 
 ## Simple Producer & Consumer Example
+	
+## Integration of Kafka into Spring Boot
+
+
 - 
 
 ## Cloning the repository
