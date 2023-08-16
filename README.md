@@ -58,7 +58,7 @@ Therefore, it is recommended to run Apache Kafka on Windows through:
     5. Downloads & Extract the contents on WSL2
 	
     6. Start Zookeeper using the binaries in WSL2
-	bin/zookeeper-server-start.sh /config/zookeeper.properties
+	bin/zookeeper-server-start.sh config/zookeeper.properties
 	
     7. Start Kafka using the binaries in another process in WSL2
 	bin/kafka-server-start.sh config/server.properties
