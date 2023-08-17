@@ -66,6 +66,10 @@ Therefore, it is recommended to run Apache Kafka on Windows through:
     8. Setup the $PATH environment variables for easy access to the Kafka binaries
 	PATH="$PATH:~/kafka_2.13-3.5.1/bin"
 	the conmmand: kafka-tocpics.sh should from any folder
+	
+	9. to avoid shoutdown wiht log file problem:
+	- change in server.properties file: log.dirs=log/kafka-logs
+	- change in zookeeper.properties file: dataDir=log/zookeeper
 
 ## Kafka CLI
 - create a topic:<br/>
@@ -85,7 +89,25 @@ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --boots
 kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhost:9092 --partition 0  --offset 2
 
 ## Simple Producer & Consumer Example
-	
+
+1. Start Zookeeper server: bin/zookeeper-server-start.sh config/zookeeper.properties
+2. Start Kafka server: bin/kafka-server-start.sh config/server.properties
+3. Run SimpleProducer.java from SimpleKafkaExample to push msg to the topic 'hello-kafka'
+4. Run SimpleSuncomer.java from SimpleKafkaExample to subcribe msg of the topic 'hello-kafka'
+
+## Advanced Kafka Consumer
+1. Rebalance Listener <br/>
+ - One common use is saving offsets in a custom store. By saving offsets in the onPartitionsRevoked(Collection) call we can ensure that any time partition assignment changes the offset gets saved.
+ - start SimpleProducer
+ - start ConsumerRebalanceDemo
+ 
+2. Seek and Assign
+ - In case you are looking to read specific messages from specific partitions, the .seek() and .assign() API may help you. 
+ - remove groud.id
+ - remove subscribe()
+
+3. Consumer in Thread
+
 ## Integration of Kafka into Spring Boot
 
 
@@ -98,3 +120,6 @@ Please use the following command:
 ```bash
 git clone https://github.com/minhducngo85/Kafka.git
 ```
+
+## Credits
+https://www.conduktor.io/kafka/kafka-topics-advanced/

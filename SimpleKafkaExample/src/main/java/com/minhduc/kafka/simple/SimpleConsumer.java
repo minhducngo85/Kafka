@@ -1,3 +1,4 @@
+package com.minhduc.kafka.simple;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
