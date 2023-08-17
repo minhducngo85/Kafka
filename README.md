@@ -107,7 +107,7 @@ kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhos
  - remove subscribe()
 
 3. Consumer in Thread
-
+ - Running a Java Consumer in a separate thread allows you to perform other tasks in the main thread. 
 ## Integration of Kafka into Spring Boot
 
 
