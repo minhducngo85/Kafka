@@ -33,7 +33,6 @@ public class ConsumerThreadDemo {
 
 		// add the shutdown hook
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
