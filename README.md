@@ -117,9 +117,9 @@ replace bin with bin\windows and .sh with .bat
 3. Consumer in Thread
  - Running a Java Consumer in a separate thread allows you to perform other tasks in the main thread. 
 ## Integration of Kafka into Spring Boot
-
-
-- 
+- start zookeeper server: bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+- start kafka server: bin\windows\kafka-server-start.bat config\server.properties
+- run KafkaSpringBoot application
 
 ## Cloning the repository
 
