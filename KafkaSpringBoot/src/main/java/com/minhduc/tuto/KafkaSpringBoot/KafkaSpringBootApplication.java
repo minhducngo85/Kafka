@@ -28,9 +28,9 @@ public class KafkaSpringBootApplication implements ApplicationRunner {
 		kafkaTemplate.send("springboot-kafka", msg);
 	}
 
-	@KafkaListener(topics = "springboot-kafka", groupId = "group-spring-app")
+	@KafkaListener(topics = "springboot-kafka")
 	public void listen(String message) {
-		System.out.println("Received Messasge in group (group-id): " + message);
+		System.out.println("Received Messasge: " + message);
 	}
 
 	/**
