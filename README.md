@@ -51,6 +51,7 @@ Therefore, it is recommended to run Apache Kafka on Windows through:
 	wsl --install -d Ubuntu
 	
     3. Install Java JDK version 11
+	sudo apt-get update
 	sudo apt-get install openjdk-11-jdk
 	
     4. Download Apache Kafka from https://kafka.apache.org/downloads under Binary
@@ -87,6 +88,13 @@ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server local
 bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
 - with partition and offset:<br/>
 kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhost:9092 --partition 0  --offset 2
+
+
+## Kafka CLI on Windows
+replace bin with bin\windows and .sh with .bat
+ 
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/>
+bin\windows\kafka-server-start.sh config\server.properties<
 
 ## Simple Producer & Consumer Example
 
