@@ -46,8 +46,7 @@ public class ConsumerRebalanceDemo {
 				log.info("Detected a shutdown, let's exit by calling consumer.wakeup()...");
 				consumer.wakeup();
 
-				// join the main thread to allow the execution of the code in
-				// the main thread
+				// join the main thread to allow the execution of the code in the main thread
 				try {
 					mainThread.join();
 				} catch (InterruptedException e) {
@@ -67,13 +66,12 @@ public class ConsumerRebalanceDemo {
 					log.info("Key: " + record.key() + ", Value: " + record.value());
 					log.info("Partition: " + record.partition() + ", Offset:" + record.offset());
 
-					// we track the offset we have been committed in the
-					// listener
+					// we track the offset we have been committed in the listener
 					listener.addOffsetToTrack(record.topic(), record.partition(), record.offset());
 				}
 
-				// We commitAsync as we have processed all data and we don't
-				// want to block until the next .poll() call
+				// We commitAsync as we have processed all data and we don't want to block until
+				// the next .poll() call
 				consumer.commitAsync();
 			}
 		} catch (WakeupException e) {
