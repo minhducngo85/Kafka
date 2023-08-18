@@ -93,8 +93,8 @@ kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhos
 ## Kafka CLI on Windows
 replace bin with bin\windows and .sh with .bat
  
-bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/>
-bin\windows\kafka-server-start.sh config\server.properties<
+**bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/>**
+**bin\windows\kafka-server-start.bat config\server.properties**
 
 ## Simple Producer & Consumer Example
 
