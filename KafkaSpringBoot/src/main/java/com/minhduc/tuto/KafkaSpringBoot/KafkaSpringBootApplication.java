@@ -24,6 +24,7 @@ public class KafkaSpringBootApplication implements ApplicationRunner {
 	 * @param msg
 	 */
 	public void sendMessage(String msg) {
+		System.out.println("Send msg: " + msg);
 		kafkaTemplate.send("springboot-kafka", msg);
 	}
 
